@@ -1,0 +1,84 @@
+/* TodoList */
+.TodoList {
+	margin: 20px auto;
+	padding: 0;
+	width: 600px;
+	max-width: 90%;
+}
+.TodoList h1 {
+	color: #4c8bf5;
+}
+
+/* TodoFormAdd, TodoFormEdit */
+.TodoFormAdd,
+.TodoFormEdit {
+	width: 100%;
+	padding: 20px 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.TodoFormAdd input[type='text'],
+.TodoFormAdd button,
+.TodoFormEdit input[type='text'],
+.TodoFormEdit button {
+	outline: none;
+}
+.TodoFormAdd input[type='text'],
+.TodoFormEdit input[type='text'] {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-right: 5px;
+	flex-grow: 3;
+}
+.TodoFormAdd button:hover,
+.TodoFormEdit button:hover {
+	color: #fff;
+	background-color: #4c8bf5;
+}
+
+/* Todo */
+.Todo {
+	text-align: left;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 15px;
+	background-color: #aaa;
+}
+.Todo:nth-child(odd) {
+	background-color: #4c8bf5;
+	color: #fff;
+}
+.Todo:hover {
+	background-color: #ccc;
+}
+.Todo.done {
+	opacity: 0.5;
+}
+.Todo.done .task-text {
+	text-decoration: line-through;
+}
+.Todo .task-text {
+	flex-grow: 3;
+}
+.Todo .task-text:hover {
+	cursor: pointer;
+}
+.Todo .edit {
+	font-size: 20px;
+	padding: 0px 5px;
+}
+.Todo .edit:hover {
+	cursor: pointer;
+	color: green;
+}
+.Todo .x {
+	font-size: 20px;
+	padding: 0px 0px 0px 5px;
+}
+.Todo .x:hover {
+	cursor: pointer;
+	color: red;
+}
