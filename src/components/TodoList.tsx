@@ -1,34 +1,29 @@
 import { useEffect, useState } from 'react';
 import Todo from './Todo';
 import TodoFormAdd from './TodoFormAdd';
+import ITodo from '../models/todo';
 import '../styles/TodoList.css';
 
-interface Todo {
-	id: number;
-	task: string;
-	done: boolean;
-}
-
 export default function TodoList(): JSX.Element {
-	const [todos, setTodos] = useState<Todo[]>(
+	const [todos, setTodos] = useState<ITodo[]>(
 		JSON.parse(localStorage.getItem('todoList') || '[]')
 	);
 
-	function addTodo(task) {
+	function addTodo(task: string) {
 		const newTodo = { id: Date.now(), task, done: false };
 		setTodos([...todos, newTodo]);
 	}
-	function removeTodo(id) {
+	function removeTodo(id: number) {
 		const newTodos = todos.filter((todo) => todo.id != id);
 		setTodos(newTodos);
 	}
-	function toggleDone(id) {
+	function toggleDone(id: number) {
 		const updatedTodos = todos.map((todo) =>
 			todo.id === id ? { ...todo, done: !todo.done } : todo
 		);
 		setTodos(updatedTodos);
 	}
-	function editTodo(id, task) {
+	function editTodo(id: number, task: string) {
 		const updatedTodos = todos.map((todo) =>
 			todo.id === id ? { ...todo, task } : todo
 		);
